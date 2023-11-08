@@ -4,7 +4,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { MotiView } from 'moti';
+import { MotiView, MotiText } from 'moti';
 
 const HomeScreen = () => {
   return (
@@ -23,6 +23,25 @@ const HomeScreen = () => {
       >
         <Image source={require('../assets/uber.1.jpg')} style={styles.uberImage} />
       </MotiView>
+      <MotiText
+        from={{
+          opacity: 0,
+          scale: 0,
+          rotate: '90deg',
+        }}
+        animate={{
+          opacity: 1,
+          scale: 4,
+        }}
+        transition={{
+          type: 'timing',
+          duration: 1000,
+          delay: 1000,
+        }}
+        style={styles.headText}
+      >
+        Carriage
+      </MotiText>
     </View>
   );
 };
@@ -43,5 +62,10 @@ const styles = StyleSheet.create({
     top: hp('20%'),
     resizeMode: 'contain',
     transform: [{ rotate: '90deg' }],
+  },
+  headText: {
+    top: hp('40%'),
+    fontSize: 14,
+    fontWeight: 'bold',
   },
 });

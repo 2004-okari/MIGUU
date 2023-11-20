@@ -1,4 +1,11 @@
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { StatusBar } from 'expo-status-bar';
@@ -9,9 +16,12 @@ import {
 } from 'react-native-responsive-screen';
 import TextInput from 'react-native-text-input-interactive';
 import COLORS from '../Constants/colors';
+import { useNavigation } from '@react-navigation/native';
 
 const MapScreen = () => {
   const [destination, setDestination] = useState(null);
+
+  const navigation = useNavigation();
 
   return (
     <>
@@ -19,13 +29,13 @@ const MapScreen = () => {
         <Map />
       </View>
       <View style={styles.container2}>
-        <TouchableOpacity style={styles.destinationDiv} onPress={() => {}}>
+        <TouchableOpacity style={styles.destinationDiv} onPress={() => { navigation.navigate('Selection')}}>
           <Text>Where to ?</Text>
-          <Icon name='search-outline' color='purple' size={24} />
+          <Icon name="search-outline" color="purple" size={24} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.foodDiv}>
           <TouchableWithoutFeedback>
-            <Icon name='pizza-outline' size={24} color='blue' />
+            <Icon name="pizza-outline" size={24} color="blue" />
           </TouchableWithoutFeedback>
           <TouchableOpacity>
             <Text>Miguu Foods</Text>
@@ -47,7 +57,7 @@ const styles = StyleSheet.create({
   container2: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: hp('0.8%')
+    paddingTop: hp('0.8%'),
   },
   destinationDiv: {
     marginVertical: 4,
@@ -68,6 +78,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 4,
     paddingHorizontal: wp('3%'),
-
-  }
+  },
 });

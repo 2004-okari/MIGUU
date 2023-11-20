@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MapScreen from './screens/MapScreen';
 import LoginScreen from './screens/Authentication/LoginScreen';
 import SignupScreen from './screens/Authentication/SignupScreen';
+import Selectioncreen from './screens/Selectioncreen';
 
 export default function App() {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -24,6 +25,7 @@ export default function App() {
         {/* <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Signup" component={SignupScreen} /> */}
         <Stack.Screen options={{ headerShown: false }} name="Map" component={MapScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Selection" component={Selectioncreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

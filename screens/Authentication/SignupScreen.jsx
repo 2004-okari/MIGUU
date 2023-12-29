@@ -15,6 +15,10 @@ import {
 import COLORS from '../../Constants/colors';
 import TextInput from 'react-native-text-input-interactive';
 import { useNavigation } from '@react-navigation/native';
+// import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+// import { authentication } from '../firebase.config';
+// import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
+// import { db } from '../firebase.config';
 
 const SignupScreen = () => {
   const navigation = useNavigation();

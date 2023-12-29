@@ -19,6 +19,10 @@ import { useNavigation } from '@react-navigation/native';
 // import { authentication } from '../firebase.config';
 // import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
 // import { db } from '../firebase.config';
+import { db } from '../../firebase.config';
+import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
+import { authentication  } from '../../firebase.config';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 const SignupScreen = () => {
   const navigation = useNavigation();

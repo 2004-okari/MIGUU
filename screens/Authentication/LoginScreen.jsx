@@ -6,9 +6,10 @@ import {
 } from 'react-native-responsive-screen';
 import COLORS from '../../Constants/colors';
 import TextInput from 'react-native-text-input-interactive';
-// import { authentication } from '../firebase.config';
-// import { signInWithEmailAndPassword } from 'firebase/auth';
+import { authentication } from '../../firebase.config';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -17,13 +18,16 @@ const LoginScreen = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [emailValidationMessage, setEmailValidationMessage] = useState('');
   const [emailValid, setEmailValid] = useState(true);
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
 
   const handleEmailChange = (inputText) => {
     setEmail(inputText);
+    setCredentials({ ...credentials, email: inputText });
   };
 
   const handlePasswordChange = (inputText) => {
     setPassword(inputText);
+    setCredentials({ ...credentials, password: inputText });
   };
 
   const togglePasswordVisibility = () => {
@@ -55,10 +59,11 @@ const LoginScreen = () => {
     signInWithEmailAndPassword(authentication, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        // console.log(user);
-        AsyncStorage.setItem('userId', user.uid);  // Save user ID to AsyncStorage
+        console.log(user);
+        AsyncStorage.setItem("userData", JSON.stringify(credentials));
+
         setIsSignedIn(true);
-        navigation.navigate('Home', {name: userCredential.displayName});
+        navigation.navigate('Map', {name: userCredential.displayName});
       })
       .catch((error) => {
         if (error.code === 'auth/user-not-found') {

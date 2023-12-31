@@ -23,6 +23,7 @@ import { db } from '../../firebase.config';
 import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
 import { authentication  } from '../../firebase.config';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignupScreen = () => {
   const navigation = useNavigation();
@@ -118,6 +119,8 @@ const SignupScreen = () => {
       setUser(username);
       console.log(user);
 
+      // AsyncStorage.setItem("user", JSON.stringify(user));
+
       // Set the displayName
       // await updateProfile(authentication.currentUser, {
       //   displayName: username,
@@ -134,7 +137,7 @@ const SignupScreen = () => {
       })
       .then(() => {
         setIsSignedUp(true);
-        navigation.navigate('Home');
+        navigation.navigate('Login');
       })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {

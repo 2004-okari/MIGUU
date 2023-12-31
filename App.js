@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import 'react-native-reanimated';
 import HomeScreen from './screens/HomeScreen';
@@ -15,7 +15,6 @@ import { store } from './Redux/store';
 import { Provider } from 'react-redux';
 
 export default function App() {
-  // const [fontsLoaded, setFontsLoaded] = useState(false);
 
   const Stack = createNativeStackNavigator();
 
@@ -23,11 +22,11 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          {/* <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeScreen} /> */}
+          <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeScreen} />
           {/* <Stack.Screen options={{ headerShown: false }} name="Location" component={MapScreen} /> */}
           <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
           <Stack.Screen options={{ headerShown: false }} name="Signup" component={SignupScreen} />
-          {/* <Stack.Screen options={{ headerShown: false }} name="Map" component={MapScreen} /> */}
+          <Stack.Screen options={{ headerShown: false }} name="Map" component={MapScreen} />
           <Stack.Screen
             options={{ headerShown: false }}
             name="Selection"

@@ -24,20 +24,21 @@ const Selectioncreen = () => {
         }}
         transition={{
           type: 'timing',
-          duration: 1000,
+          duration: 800,
         }}
       >
-        <View>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Your route</Text>
           <TouchableOpacity
+            style={styles.closeIcon}
             onPress={() => {
               navigation.goBack();
             }}
           >
             <Icon name="close-outline" color="purple" size={24} />
           </TouchableOpacity>
-          <Text>Your route</Text>
         </View>
-        <View>
+        <View style={styles.container3}>
           <TextInput
             // onChangeText={handleEmailChange}
             mainColor={COLORS.BG2}
@@ -69,7 +70,7 @@ const Selectioncreen = () => {
         }}
         transition={{
           type: 'timing',
-          duration: 1000,
+          duration: 800,
         }}
       >
         <ScrollView style={styles.container2}>
@@ -99,6 +100,7 @@ export default Selectioncreen;
 const styles = StyleSheet.create({
   container2: {
     backgroundColor: 'red',
+    marginTop: 10
   },
   content: {
     alignSelf: 'center',
@@ -109,4 +111,27 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     borderRadius: 4,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+  },
+  headerText: {
+    fontSize: 18,
+    fontWeight: '500',
+  },
+  closeIcon: {
+    backgroundColor: COLORS.TEXT3,
+    borderRadius: 4,
+  },
+  container3: {
+    alignContent: 'center',
+    backgroundColor: 'red',
+    alignItems: 'center',
+  },
+  inputText: {
+    width: wp('94%'),
+    marginBottom: 4
+  }
 });

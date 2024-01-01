@@ -51,7 +51,7 @@ export default MapScreen;
 
 const styles = StyleSheet.create({
   container: {
-    height: hp('55%'),
+    height: hp('75%'),
     width: '100%',
   },
   container2: {
